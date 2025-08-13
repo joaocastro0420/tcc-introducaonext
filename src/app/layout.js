@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "../styles/globals.css";
 import "../styles/reset.css";
+import "../styles/globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "cs lotus",
-  description: "Melhor site de skins de csgo",
+  title: "CondoWay",
+  description: "O melhor app de condominio para condominos ",
 };
 
 export default function RootLayout({ children }) {
