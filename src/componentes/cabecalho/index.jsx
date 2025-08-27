@@ -1,97 +1,31 @@
-'use client'
-
-import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-
-import { MdFastfood, MdMenu } from 'react-icons/md';
-
+import Image from 'next/image';
+import { FaHome, FaUser, FaShoppingCart, FaGift, FaStar } from 'react-icons/fa';
 import styles from './index.module.css';
 
-function Cabecalho() {
-
-  const [mobile, setMobile] = useState(false);
-
-  const rota = usePathname();
-
-  function ativaMenu() {
-    if (mobile === false) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  }
-
+export default function Cabecalho() {
   return (
-    <header className={styles.containerNav}>
-      <div className={styles.menu}>
-        <div>
-          <MdFastfood className={styles.icon} id="logo" />
-          <label id="titulo">BomBurguer</label>
-        </div>
-        <nav className={styles.menuGrande}>
-          <Link
-            href='/'
-            className={rota === '/' ? styles.active : ''}
-          >Home</Link>
-          <Link
-            href='/produtos'
-            className={rota === '/produtos' ? styles.active : ''}
-          >Produtos</Link>
-
-          <Link
-            href='/sobre'
-            className={rota === '/sobre' ? styles.active : ''}
-          >Sobre</Link>
-          
-          <Link
-            href='/usuario/cadastro'
-            className={rota === '/usuarios/cadastro' ? styles.active : ''}
-          >Cadastrar</Link>
-
-          <Link
-            href='/usuario/login'
-            className={rota === '/usuarios/login' ? styles.active : ''}
-          >Login</Link>
-
-        </nav>
-        <div className={styles.menuMobile}>
-          <MdMenu onClick={ativaMenu} className={styles.icon} id="logo" />
-        </div>
+    <nav className={styles.menuGrande}>
+      <Link href="/">
+        <Image src="/logo.png" alt="CS Lotus" width={48} height={48} className={styles.logo} />
+      </Link>
+      <div className={styles.links}>
+        <Link href='/' className={styles.link}>
+          <FaHome /> Home
+        </Link>
+        <Link href='/perfil' className={styles.link}>
+          <FaUser /> Perfil
+        </Link>
+        <Link href='/venda' className={styles.link}>
+          <FaShoppingCart /> Venda Particular
+        </Link>
+        <Link href='/sorteio' className={styles.link}>
+          <FaGift /> Sorteio
+        </Link>
+        <Link href='/lota' className={styles.link}>
+          <FaStar /> Lota Normal
+        </Link>
       </div>
-
-      <div
-        className={mobile === false ? styles.menuMobileExpandidon : styles.menuMobileExpandidos}
-        id="mostraOpMobile"
-      >
-        <Link
-          href='/'
-          onClick={ativaMenu}
-          className={rota === '/' ? styles.active : ''}
-        >Home</Link>
-        <Link
-          href='/produtos'
-          onClick={ativaMenu}
-          className={rota === '/produtos' ? styles.active : ''}
-        >Produtos</Link>
-        <Link
-          href='/usuario/cadastro'
-          onClick={ativaMenu}
-          className={rota === '/usuarios/cadastro' ? styles.active : ''}
-        >Cadastrar</Link>
-        <Link
-          href='/sobre'
-          onClick={ativaMenu}
-          className={rota === '/sobre' ? styles.active : ''}
-        >Sobre</Link>
-        <Link
-          href='/usuario/login'
-          onClick={ativaMenu}
-          className={rota === '/usuarios/login' ? styles.active : ''}
-        >Login</Link>
-      </div>
-    </header>
+    </nav>
   );
 }
-
-export default Cabecalho;
