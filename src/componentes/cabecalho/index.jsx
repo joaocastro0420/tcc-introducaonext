@@ -1,31 +1,43 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { FaHome, FaUser, FaShoppingCart, FaGift, FaStar } from 'react-icons/fa';
-import styles from './index.module.css';
+import Link from "next/link";
 
 export default function Cabecalho() {
   return (
-    <nav className={styles.menuGrande}>
-      <Link href="/">
-        <Image src="/logo.png" alt="CS Lotus" width={48} height={48} className={styles.logo} />
-      </Link>
-      <div className={styles.links}>
-        <Link href='/' className={styles.link}>
-          <FaHome /> Home
-        </Link>
-        <Link href='/perfil' className={styles.link}>
-          <FaUser /> Perfil
-        </Link>
-        <Link href='/venda' className={styles.link}>
-          <FaShoppingCart /> Venda Particular
-        </Link>
-        <Link href='/sorteio' className={styles.link}>
-          <FaGift /> Sorteio
-        </Link>
-        <Link href='/lota' className={styles.link}>
-          <FaStar /> Lota Normal
-        </Link>
+    <header style={{
+      width: "100%",
+      height: 80,
+      background: "#fff",
+      boxShadow: "0 2px 8px #0001",
+      borderRadius: "0 0 16px 16px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: "0 48px",
+      position: "relative",
+      zIndex: 2
+    }}>
+      <nav style={{
+        display: "flex",
+        gap: 32,
+        fontWeight: "bold",
+        fontSize: 18
+      }}>
+        <Link href="/perfil" style={{ color: "#222", textDecoration: "none" }}>PERFIL</Link>
+        <Link href="/vendas-normais" style={{ color: "#222", textDecoration: "none" }}>VENDAS NORMAIS</Link>
+        <Link href="/vendas-particulares" style={{ color: "#222", textDecoration: "none" }}>VENDAS PARTICULARES</Link>
+        <Link href="/sorteios" style={{ color: "#222", textDecoration: "none" }}>SORTEIOS</Link>
+      </nav>
+      <div>
+        <span style={{
+          display: "inline-block",
+          border: "2px solid #222",
+          borderRadius: "50%",
+          width: 40,
+          height: 40,
+          textAlign: "center",
+          lineHeight: "36px",
+          fontSize: 24
+        }}>👤</span>
       </div>
-    </nav>
+    </header>
   );
 }
