@@ -10,6 +10,33 @@ export default function Home() {
       display: "flex",
       flexDirection: "column"
     }}>
+      {/* Cabeçalho fixo em português */}
+      <header style={{
+        width: "100%",
+        background: "#fff",
+        boxShadow: "0 2px 8px #0001",
+        borderRadius: "0 0 16px 16px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        padding: "0 48px",
+        height: 80,
+        position: "sticky",
+        top: 0,
+        zIndex: 10
+      }}>
+        <nav style={{
+          display: "flex",
+          gap: 32,
+          fontWeight: "bold",
+          fontSize: 18
+        }}>
+          <Link href="/vendas-normais" style={{ color: "#222", textDecoration: "none" }}>VENDAS NORMAIS</Link>
+          <Link href="/vendas-particulares" style={{ color: "#222", textDecoration: "none" }}>VENDAS PARTICULARES</Link>
+          <Link href="/sorteios" style={{ color: "#222", textDecoration: "none" }}>SORTEIOS</Link>
+        </nav>
+      </header>
+
       <main style={{
         flex: 1,
         display: "flex",
@@ -19,7 +46,7 @@ export default function Home() {
         width: "100%",
         position: "relative"
       }}>
-        {/* Título centralizado */}
+        {/* Título e imagem centralizados */}
         <section style={{
           textAlign: "center",
           margin: "48px 0 32px 0",
@@ -32,43 +59,19 @@ export default function Home() {
             letterSpacing: "-2px",
             color: "#222"
           }}>
-            COMPRA E VENDA<br />DE SKINS
+            CS lotus
           </h1>
+          <img
+            src="/foto.png.png"
+            alt="Personagem CS"
+            style={{
+              width: 220,
+              height: "auto",
+              margin: "32px auto 0 auto",
+              display: "block"
+            }}
+          />
         </section>
-        {/* Botão à direita */}
-        <div style={{
-          position: "absolute",
-          top: 140,
-          right: 80
-        }}>
-          <Link href="/skins">
-            <button style={{
-              background: "#222",
-              color: "#fff",
-              border: "none",
-              borderRadius: 12,
-              padding: "18px 48px",
-              fontSize: 28,
-              fontWeight: "bold",
-              cursor: "pointer",
-              boxShadow: "0 2px 8px #0002"
-            }}>
-              VER SKINS
-            </button>
-          </Link>
-        </div>
-        {/* Imagem de fundo do personagem centralizada */}
-        <div style={{
-          width: "80vw",
-          maxWidth: 1200,
-          height: 220,
-          background: "url('/cs-personagem.jpg') center/cover no-repeat",
-          borderRadius: 16,
-          margin: "32px 0",
-          zIndex: 1,
-          position: "relative"
-        }} />
-
         {/* Card Minha Conta embaixo centralizado */}
         <section style={{
           background: "#fff",
@@ -101,53 +104,59 @@ export default function Home() {
             justifyContent: "center"
           }}>
             {/* Card Vendas Normais */}
-            <div style={{
-              background: "#fafafa",
-              borderRadius: 12,
-              boxShadow: "0 2px 8px #0001",
-              padding: "32px 24px",
-              textAlign: "center",
-              flex: 1,
-              minWidth: 220
-            }}>
-              <div style={{ fontSize: 40, marginBottom: 12 }}>🏷️</div>
-              <div style={{ fontWeight: "bold", fontSize: 20, marginBottom: 8 }}>VENDAS NORMAIS</div>
-              <div style={{ color: "#444", fontSize: 16 }}>
-                Liste skins à venda no mercado aberto
+            <Link href="/vendas-normais" style={{ flex: 1, textDecoration: "none" }}>
+              <div style={{
+                background: "#fafafa",
+                borderRadius: 12,
+                boxShadow: "0 2px 8px #0001",
+                padding: "32px 24px",
+                textAlign: "center",
+                minWidth: 220,
+                color: "#222"
+              }}>
+                <div style={{ fontSize: 40, marginBottom: 12 }}>🏷️</div>
+                <div style={{ fontWeight: "bold", fontSize: 20, marginBottom: 8 }}>VENDAS NORMAIS</div>
+                <div style={{ color: "#444", fontSize: 16 }}>
+                  Liste skins à venda no mercado aberto
+                </div>
               </div>
-            </div>
+            </Link>
             {/* Card Vendas Particulares */}
-            <div style={{
-              background: "#fafafa",
-              borderRadius: 12,
-              boxShadow: "0 2px 8px #0001",
-              padding: "32px 24px",
-              textAlign: "center",
-              flex: 1,
-              minWidth: 220
-            }}>
-              <div style={{ fontSize: 40, marginBottom: 12 }}>💬</div>
-              <div style={{ fontWeight: "bold", fontSize: 20, marginBottom: 8 }}>VENDAS PARTICULARES</div>
-              <div style={{ color: "#444", fontSize: 16 }}>
-                Negocie skins diretamente com outros usuários
+            <Link href="/vendas-particulares" style={{ flex: 1, textDecoration: "none" }}>
+              <div style={{
+                background: "#fafafa",
+                borderRadius: 12,
+                boxShadow: "0 2px 8px #0001",
+                padding: "32px 24px",
+                textAlign: "center",
+                minWidth: 220,
+                color: "#222"
+              }}>
+                <div style={{ fontSize: 40, marginBottom: 12 }}>💬</div>
+                <div style={{ fontWeight: "bold", fontSize: 20, marginBottom: 8 }}>VENDAS PARTICULARES</div>
+                <div style={{ color: "#444", fontSize: 16 }}>
+                  Negocie skins diretamente com outros usuários
+                </div>
               </div>
-            </div>
+            </Link>
             {/* Card Sorteios */}
-            <div style={{
-              background: "#fafafa",
-              borderRadius: 12,
-              boxShadow: "0 2px 8px #0001",
-              padding: "32px 24px",
-              textAlign: "center",
-              flex: 1,
-              minWidth: 220
-            }}>
-              <div style={{ fontSize: 40, marginBottom: 12 }}>🎁</div>
-              <div style={{ fontWeight: "bold", fontSize: 20, marginBottom: 8 }}>SORTEIOS</div>
-              <div style={{ color: "#444", fontSize: 16 }}>
-                Participe e crie sorteios de skins
+            <Link href="/sorteios" style={{ flex: 1, textDecoration: "none" }}>
+              <div style={{
+                background: "#fafafa",
+                borderRadius: 12,
+                boxShadow: "0 2px 8px #0001",
+                padding: "32px 24px",
+                textAlign: "center",
+                minWidth: 220,
+                color: "#222"
+              }}>
+                <div style={{ fontSize: 40, marginBottom: 12 }}>🎁</div>
+                <div style={{ fontWeight: "bold", fontSize: 20, marginBottom: 8 }}>SORTEIOS</div>
+                <div style={{ color: "#444", fontSize: 16 }}>
+                  Participe e crie sorteios de skins
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </section>
       </main>

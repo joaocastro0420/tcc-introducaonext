@@ -1,4 +1,4 @@
-import Cabecalho from '../componentes/cabecalho';
+
 import '../styles/globals.css';
 
 export default function RootLayout({ children }) {
