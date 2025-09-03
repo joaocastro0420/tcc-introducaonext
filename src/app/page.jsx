@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Cabecalho from "@/componentes/cabecalho";
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
       display: "flex",
       flexDirection: "column"
     }}>
-      <Cabecalho />
       <main style={{
         flex: 1,
         display: "flex",
